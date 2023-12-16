@@ -2,6 +2,7 @@ import React from 'react';
 import Image from "next/image";
 import {Button} from "@/components/ui/button";
 import {FaGithub} from "react-icons/fa";
+import {signIn} from "next-auth/react";
 
 const Login = () => {
     return (
@@ -15,7 +16,7 @@ const Login = () => {
             </div>
             <div className={"w-[600px] h-[50vh] rounded-md bg-black/60 relative z-10 p-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"}>
                 <div className={"h-full flex items-center justify-center"}>
-                    <Button className={"gap-2 w-full h-[56px] bg-red-600 !text-white text-base hover:bg-red-500"}>
+                    <Button onClick={()=>signIn("github")} className={"gap-2 w-full h-[56px] bg-red-600 !text-white text-base hover:bg-red-500"}>
                         <FaGithub className={"w-7 h-7"} />
                         Sign in with GitHub
                     </Button>

@@ -2,11 +2,15 @@
 
 import {useGlobalContext} from "@/context";
 import Login from "@/components/shared/login";
+import {useSession} from "next-auth/react";
 
 const Page = () => {
   const {account} = useGlobalContext();
+  const {data: session} = useSession();
+  // if(account === null) return <Login />
+  console.log(session)
 
-  if(account === null) return <Login />
+  if (session === null) return <Login />
 
   return (
     <div>
